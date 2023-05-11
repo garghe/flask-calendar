@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calendar</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#newEntry').submit(function(event) {
+        event.preventDefault();
+        
+        $.post($(this).attr('action'), $(this).serialize(), function(response) {
+          $('#response').html(response);
+        });
+      });
+    });
+      
+  </script>
+</head>
+<body>
+  
+  <div class="calendar">
+  <div class="header">
+    
+    <button id="prev-month">&lt;</button>
+    <h2 id="month-year"></h2>
+    <button id="next-month">&gt;</button>
+    <button id="go-to-today">Today</button>
+    
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Sun</th>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
+      </tr>
+    </thead>
+    <tbody id="calendar-body">
+    </tbody>
+  </table>
+</div>
+
+<br><br><br>
+
+<form action="http://127.0.0.1:8080/add_holiday" method="post" id="newEntry">
+  <label for="text-field">Add new entry:</label>
+  <input type="text" id="text-field" name="name">
+
+  <label for="date-picker">Date:</label>
+  <input type="date" id="date-picker" name="date">
+  
+  <input type="submit" value="Submit">
+</form>
+
+<div id="response"></div>
+
+
+
+  
+</body>
+</html>

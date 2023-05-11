@@ -1,0 +1,47 @@
+.calendar {
+  max-width: 1600px;
+  max-height: 1000px;
+  margin: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding-top: 2px;
+  padding-left:2px;
+  padding-bottom:30px;
+  vertical-align: top;
+  text-align: left;
+  border: 1px solid black;
+  max-width: 30px;
+}
+
+th {
+  background-color: lightgray;
+}
+
+.grayed-out{
+  background-color: lightgray;
+}
+
+.today{
+  background-color: red;
+}
+
+.prev-month, .next-month {
+  color: #999;
+}
+
+#response{
+  color: green;
+}
